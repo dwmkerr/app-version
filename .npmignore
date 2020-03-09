@@ -1,0 +1,6 @@
+artifacts/
+assets/
+test-projects/
+circle.yml
+*.specs.js
+

@@ -1,0 +1,44 @@
+version: 2
+jobs:
+  # To test, we just build the code, run the tests, then create and upload
+  # a coverage report.
+  test-common: &test-common
+    docker:
+        - image: dwmkerr/node:8
+    steps:
+      - checkout
+      - run: make test
+      - run: npm run cov
+      - run: bash <(curl -s https://codecov.io/bash)
+  test-node8:
+    <<: *test-common
+    docker:
+      - image: circleci/node:8
+  test-node10:
+    <<: *test-common
+    docker:
+      - image: circleci/node:10
+  test-node12:
+    <<: *test-common
+    docker:
+      - image: circleci/node:12
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test-node8:
+          # All branches, all tags.
+          filters:
+            tags:
+              only: /.*/
+      - test-node10:
+          # All branches, all tags.
+          filters:
+            tags:
+              only: /.*/
+      - test-node12:
+          # All branches, all tags.
+          filters:
+            tags:
+              only: /.*/

@@ -1,0 +1,71 @@
+{
+  "name": "app-version",
+  "version": "0.1.0",
+  "description": "Version management for mobile apps. Allows version numbers to be controlled for Native, React Native, Corvoda, Xamarin and more. Ideal for CI/CD.",
+  "main": "./src/index.js",
+  "engines": {
+    "node": ">=8.5"
+  },
+  "bin": {
+    "app-version": "./bin/app-version.js"
+  },
+  "scripts": {
+    "start": "./bin/app-version.js",
+    "debug": "node --inspect --inspect-brk ./bin/app-version.js",
+    "test": "mocha ./src/{,**/}*.specs.js",
+    "test:debug": "mocha -d -w ./src/{,**/}*.specs.js",
+    "cov": "nyc mocha ./src/{,**/}*.specs.js",
+    "lint": "eslint .",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwmkerr/app-version.git"
+  },
+  "keywords": [
+    "cordvoa",
+    "react-native",
+    "version"
+  ],
+  "author": "Dave Kerr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dwmkerr/app-version/issues"
+  },
+  "homepage": "https://github.com/dwmkerr/app-version#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^9.1.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.0.0",
+    "standard-version": "^7.0.0"
+  },
+  "dependencies": {
+    "@dwmkerr/node-utils": "^0.1.2",
+    "chalk": "^2.3.0",
+    "commander": "^4.1.1",
+    "debug": "^4.1.1",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^3.0.0"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/testing/*",
+      "src/**/*.specs.js"
+    ],
+    "reporter": [
+      "text",
+      "html",
+      "lcov"
+    ],
+    "cache": true,
+    "report-dir": "./artifacts/coverage"
+  }
+}
