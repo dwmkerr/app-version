@@ -9,7 +9,6 @@ const setVersion = require('../src/commands/set-version');
 //  Create the program, ensure that an 'action' is mandatory.
 program
   .version(pack.version)
-  .arguments('<command>')
   .option('-s, --search [optional]', 'The folder to search from.', './')
   .option('-p, --platforms [optional]', 'The platforms to generate icons for.', 'android,ios');
 
@@ -32,6 +31,8 @@ program.on('--help', () => {
   console.log('');
 });
 
+//  Show help for unknown commands.
+program.on('command:*', () => program.help());
 const main = async () => {
   try {
     //  Parse the arguments. If we have no subcommand, show the help.

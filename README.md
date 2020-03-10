@@ -11,6 +11,7 @@ Version management for mobile apps. Allows version numbers to be controlled for 
 * [Introduction](#introduction)
 * [Installation](#installation)
 * [Usage](#usage)
+    * [Set Version](#set-version)
 * [Developer Guide](#developer-guide)
     * [Initial Setup](#initial-setup)
     * [Running Tests](#running-tests)
@@ -37,7 +38,7 @@ You can also use the module directly in node:
 ```js
 import appVersion from 'app-version';
 
-await appVesrsion.setVersion({ version: '0.1.2' });l
+await appVersion.setVersion({ version: '0.1.2' });l
 ```
 
 ## Installation
@@ -52,9 +53,35 @@ npm install -g app-version
 
 Here's a quick reference:
 
-| Command                         | Description                                |
-|---------------------------------|--------------------------------------------|
-| `app-version set-version 0.1.2` | Set the version in all projects to `0.1.2` |
+### Set Version
+
+To set the application version, run:
+
+```sh
+app-version set-version 0.1.2
+```
+
+**iOS**
+
+Updates the `Info.plist` file:
+
+```
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.2</string>
+```
+
+**Android**
+
+Updates the `app/build.gradle` file:
+
+```
+android {
+    defaultConfig {
+        versionName "0.1.2"
+    }
+}
+```
+
 
 ## Developer Guide
 
