@@ -11,8 +11,6 @@ module.exports = async function editPlistFile(filePath, keypairs) {
 
   const readInterface = readline.createInterface({
     input: fs.createReadStream(filePath),
-    output: process.stdout,
-    console: false,
   });
 
   readInterface.on('line', (line) => {
@@ -38,6 +36,7 @@ module.exports = async function editPlistFile(filePath, keypairs) {
 
   //  When we've finished reading we can write the updated lines back to the file.
   readInterface.on('close', () => {
+    updatedLines.push(''); // end the file with a newline as is standard
     fs.writeFileSync(filePath, updatedLines.join('\n'), 'utf-8');
   });
 };

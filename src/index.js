@@ -1,5 +1,7 @@
-const { findPlistFiles } = require('./ios/find-plist-files');
+const setVersion = require('./commands/set-version');
+const showVersions = require('./commands/show-versions');
 
 module.exports = {
-  findPlistFiles,
+  setVersion,
+  showVersions,
 };
