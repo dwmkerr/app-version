@@ -1,3 +1,5 @@
+const debug = require('debug')('app-version');
+
 module.exports = function validateParameters(parameters) {
   //  Validate or assign the search path.
   const searchRoot = parameters.searchRoot || './';
@@ -11,6 +13,9 @@ module.exports = function validateParameters(parameters) {
       throw new Error(`${platforms[i]} is not a valid platform.`);
     }
   }
+
+  //  Show the parameters in the debug output.
+  debug(`Parameters: searchRoot = ${searchRoot}, platforms = ${platforms}`);
 
   return {
     searchRoot,

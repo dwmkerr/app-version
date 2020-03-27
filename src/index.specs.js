@@ -1,11 +1,9 @@
 const { expect } = require('chai');
-const appIcon = require('..');
+const index = require('./index');
 
 describe('index', () => {
-  it('should expose the module to be required in another project', () => {
-    expect(appIcon.labelImage).to.be.a('function');
-    expect(appIcon.generate).to.be.a('function');
-    expect(appIcon.templates).to.be.an('object')
-      .and.to.have.all.keys(['AndroidManifest.icons', 'AppIcon.iconset']);
+  it('should expose the expected apis', () => {
+    expect(index.setVersion).to.be.a('function');
+    expect(index.showVersions).to.be.a('function');
   });
 });
