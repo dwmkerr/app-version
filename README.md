@@ -4,8 +4,6 @@
 
 Version management for mobile apps. Allows version numbers to be controlled for Native, React Native, Corvoda, Xamarin and more. Ideal for CI/CD.
 
-<img src="./assets/banner/banner.png" width="614" alt="Banner">
-
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
