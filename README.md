@@ -80,7 +80,6 @@ android {
 }
 ```
 
-
 ## Developer Guide
 
 The only dependencies are Node LTS (or above).

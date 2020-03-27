@@ -35,21 +35,22 @@
   "homepage": "https://github.com/dwmkerr/app-version#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.14.0",
+    "chai-files": "^1.4.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^9.1.0",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.3",
     "nyc": "^15.0.0",
-    "standard-version": "^7.0.0"
+    "standard-version": "^7.1.0"
   },
   "dependencies": {
     "@dwmkerr/node-utils": "^0.1.2",
-    "chalk": "^2.3.0",
+    "chalk": "^2.4.2",
     "commander": "^4.1.1",
     "debug": "^4.1.1",
     "mkdirp": "^1.0.3",
-    "rimraf": "^3.0.0"
+    "rimraf": "^3.0.2"
   },
   "nyc": {
     "all": true,
